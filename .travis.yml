@@ -21,8 +21,6 @@ script:
     - docker build -t drand-it . #docker-compose should be self-sufficient, but fails on travis...
     - make test-integration
 
-before_deploy:
-    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 deploy:
   - provider: script
     script: docker push dedis/drand:latest
